@@ -324,21 +324,52 @@ function updateTotal() {
   cartTotalElement.textContent = `Total: ₹${total}`;
 }
 
+// // Hamburger menu toggle
+// document.addEventListener("DOMContentLoaded", () => {
+//   const hamburger = document.getElementById('hamburger');
+//   const mobileMenu = document.querySelector('.mobile-menu');
+
+//   if (hamburger && mobileMenu) {
+//     hamburger.addEventListener('click', () => {
+//       mobileMenu.classList.toggle('active');
+//     });
+
+//     const menuLinks = mobileMenu.querySelectorAll("a");
+//     menuLinks.forEach(link => {
+//       link.addEventListener("click", () => {
+//         mobileMenu.classList.remove("active");
+//       });
+//     });
+//   }
+// });
+
 // Hamburger menu toggle
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.querySelector('.mobile-menu');
 
   if (hamburger && mobileMenu) {
+    // Toggle menu on hamburger click
     hamburger.addEventListener('click', () => {
       mobileMenu.classList.toggle('active');
     });
 
+    // Close menu on link click
     const menuLinks = mobileMenu.querySelectorAll("a");
     menuLinks.forEach(link => {
       link.addEventListener("click", () => {
         mobileMenu.classList.remove("active");
       });
+    });
+
+    // Close menu if clicked outside
+    document.addEventListener('click', (event) => {
+      const isClickInsideMenu = mobileMenu.contains(event.target);
+      const isClickOnHamburger = hamburger.contains(event.target);
+
+      if (!isClickInsideMenu && !isClickOnHamburger) {
+        mobileMenu.classList.remove('active');
+      }
     });
   }
 });
