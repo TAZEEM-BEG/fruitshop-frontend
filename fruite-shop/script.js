@@ -246,7 +246,7 @@
 //   .then(data => console.log("Cart saved:", data));
 
 
-const backendURL = "https://fruit-backend-xxxxx.onrender.com";
+const backendURL = "https://tazeem-fruit-backend.onrender.com";
 
 // Buttons and Sections
 const loginBtn = document.getElementById("login-btn");
